@@ -1,0 +1,14 @@
+### Python template
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+### macOS template
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Idea Files
+.idea/**
+
