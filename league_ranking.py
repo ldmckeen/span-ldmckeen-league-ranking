@@ -1,7 +1,18 @@
 """
 Span League Ranking Application.
 
-===============================
+===========================================================================================
+~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+<league_ranking.py> Application File
+
+Author:             Lloyd McKeen
+Github Username:    ldmckeen
+Email:              ldmckeen@gmail.com
+Company:            Span
+Date:               January 2023
+~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+
+
 Problem Statement & Instructions:
 --------------------------------
 We want you to create a production ready, maintainable, testable command-line application
@@ -38,18 +49,79 @@ Expected output:
 3. FC Awesome, 1 pt
 3. Snakes, 1 pt
 5. Grouches, 0 pts
+
+===========================================================================================
 """
+import logging
+import os
 import sys
+from argparse import ArgumentParser
+
+from distutils.util import strtobool
+from dotenv import load_dotenv
 
 
-def calculateRanking(scores):
+def calculate_ranking(scores):
     """League Ranking table solution via newline comma seperated scores input."""
     return scores
 
 
-if __name__ == '__main__':
-    input = ' '.join(sys.argv[1:])
+def get_options():
+    """
+    Parse CLI arguments for script.
 
-    result = calculateRanking(input)
+    :return: CLI Arguments
+    """
+    parser = ArgumentParser(description='Read .avro File')
+    required = parser.add_argument_group('Required Arguments')
 
+    # Required Arguments
+    required.add_argument(
+        '--file',
+        dest='filename',
+        help='Filename (and path) file to read',
+        required=True,
+    )
+
+    return parser.parse_args()
+
+
+def main():
+    """Run Application."""
+    logging.info('Starting League Ranking Process ....')
+
+    # Load Environment Variables
+    load_dotenv()
+    file_input = bool(strtobool(os.getenv('FILE_INPUT', 'False')))
+
+    print(f'File Input: {file_input}')
+
+    # If File Input Env True, pull data from file, otherwise pull data from cmd params
+    if file_input:
+        # Get command line args
+        opts = get_options()
+        file_name = opts.filename
+        with open(file_name) as f:
+            score_input = f.readlines()
+        for match_result in score_input:
+            print(f'Match Result: {match_result}')
+        print(f'Executing file input from file: {file_name}')
+    else:
+        score_input = ' '.join(sys.argv[1:])
+
+    result = calculate_ranking(score_input)
     print(result)
+
+
+if __name__ == '__main__':
+    """
+    Script Entrypoint.
+    """
+
+    try:
+        main()
+    except Exception as err:
+        logging.info(
+            f'{os.path.basename(__file__)} failed due to error: {err}'
+        )
+        raise err
