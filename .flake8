@@ -1,6 +1,9 @@
 [flake8]
 max-line-length = 91
 
+ignore =
+    T001 print found.
+
 exclude =
     .tox,
     __pycache__,
