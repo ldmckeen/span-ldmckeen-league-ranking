@@ -2,10 +2,10 @@ Span League Ranking Application
 ==============================
 # span-ldmckeen-league-ranking
 
-The following repo houses the codebase for a production ready, maintainable, testable 
+The following repo houses the codebase for a production ready, maintainable, testable
 command-line application that will calculate the ranking table for a league.
 
-In this repo you will find the Problem Statement PDF with Instructions, the application 
+In this repo you will find the Problem Statement PDF with Instructions, the application
 codebase and all supporting repository files necessary for the league-ranking python app.
 
 # Tech Stack Details
@@ -13,7 +13,7 @@ Following is a full comprehensive list of all the requirements to use and setup 
 application accordingly.
 ## Pre-requisites
 When setting up a local environment for developing ensure you are using a local
-virtual environment for optimal sandboxing and testing so as to minimize clashes with 
+virtual environment for optimal sandboxing and testing so as to minimize clashes with
 existing setups or environments on your machine.
 
 ####Virtual Environment Setup
@@ -50,7 +50,6 @@ Make sure to add the envs to your bash or zsh profiles (.zshrc/.zprofile, .bashr
 This application makes use of Python 3.8.7
 
 ### Git Config
-
 In order to ensure that your local git structure mirrors that of the broader style
 requirements, you must setup the use of git hooks. This is done via the `pre-commit`
 application. If on a Mac, ensure you `brew install pre-commit` (Sometimes you need: `xcode-select --install`)
@@ -66,3 +65,33 @@ Make sure all the application requirements are installed by running:
 
 Configure pre-commit
 `pre-commit install`
+
+#### Troubleshooting
+#####Pip
+If you're Pip issues not installing packages correctly please take note you may need to upgrade your pip installation.
+`pip install --upgrade pip`
+
+*Common git commands:*
+Checkout to new branch:
+`git checkout -b "feature/<ticket-id>-<short-descriptor>"`
+- eg. `git checkout -b feature/SPAN-101-new-feature`
+
+Set upstream branch:
+`git push --set-upstream origin feature/SPAN-101-new-feature`
+
+Stage all changed files in current directory for commit:
+`git add .`
+
+Check status of current branch:
+`git status` - Check status of current branch
+
+*Git Tutorials*:
+`https://guides.github.com/activities/hello-world/`
+
+###Environment Variables:
+This project makes use of environment variables.
+Ensure you have a .env file in your root directory and store the passwords and secrets
+in a vault in the cloud on a web applicaiton such as lastpass or 1password
+(Or any Cloud Platform Vault of your choice)
+https://www.lastpass.com/
+https://1password.com/
