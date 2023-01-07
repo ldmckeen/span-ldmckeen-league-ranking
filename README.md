@@ -91,7 +91,17 @@ Check status of current branch:
 ###Environment Variables:
 This project makes use of environment variables.
 Ensure you have a .env file in your root directory and store the passwords and secrets
-in a vault in the cloud on a web applicaiton such as lastpass or 1password
+in a vault in the cloud on a web application such as lastpass or 1password
 (Or any Cloud Platform Vault of your choice)
 https://www.lastpass.com/
 https://1password.com/
+
+# Running the Python Application
+###Usage
+For use with a file input:
+`python league_ranking.py --file=<file_name>`
+For use with a command line input as comma and newline seperated text
+`python league_ranking.py <cmd input as stringed parameter one match result per line>`
+
+### If using an IDE such as Pycharm
+Refer to the screenshots in the resources folder
