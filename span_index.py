@@ -65,7 +65,7 @@ from dotenv import load_dotenv
 
 from application.helpers.print_functions import print_cmd_art
 from application.helpers.print_functions import print_program_end
-from application.league_ranking import calculate_rankings
+from application.league_ranking import LeagueRanking
 
 
 def get_options():
@@ -100,6 +100,9 @@ def main():
     logging.info(f'Using File Input: {file_input}')
     print(f'Using File Input: {file_input}')
 
+    # Instantiate League Ranking Object
+    lr = LeagueRanking()
+
     # If File Input Env True, pull data from file, otherwise pull data from cmd params
     score_input = None
     if file_input:
@@ -118,20 +121,21 @@ def main():
     try:
         logging.info('.... Program Executing ....')
         print('Program Executing ....')
-        if score_input is None or '':
+        if score_input is None or score_input == '':
             logging.info('No Input to Process ....')
             print('No Input to Process .... program exiting.')
             return
-        result = calculate_rankings(score_input)
+        result = lr.calculate_rankings(score_input)
         print('.... League Ranking Complete\n')
         print('Span League Rank Table')
         print('-----------------------')
         print('o-o-o-o-o-o-o-o-o-o-o-o\n')
 
         team_rank_count = 0
-        for team in result:
-            team_rank_count += 1
-            print(f'{team_rank_count}. {team[0]} {team[1]} pts')
+        if result:
+            for team in result:
+                team_rank_count += 1
+                print(f'{team_rank_count}. {team[0]} {team[1]} pts')
 
         print('\no-o-o-o-o-o-o-o-o-o-o-o')
         print('-----------------------')

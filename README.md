@@ -105,6 +105,9 @@ For use with a file input:
 i.e Sample Files to test are stored in ./sample_input
 For use with a command line input as comma and newline seperated text
 `python span_index.py <cmd input as stringed parameter one match result per line>`
+####Environment Variables
+Make sure to add your own Environment Variable file with the necessary Variables i.e .env
+(see .env.template for an example of the env variables used)
 
 To Note:
 Application Code resides in the application folder

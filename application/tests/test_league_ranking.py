@@ -17,9 +17,10 @@ Usage: pytest (to run all tests)
 
 ===========================================================================================
 """
-from application.league_ranking import calculate_rankings
 
 
-def test_calculate_rankings(sample_league_input, sample_league_rankings):
+def test_calculate_rankings(sample_league_ranking_object,
+                            sample_league_input, sample_league_rankings):
     """Test Calculate Ranking Function returns Expected output."""
-    assert calculate_rankings(sample_league_input) == sample_league_rankings
+    assert sample_league_ranking_object.calculate_rankings(sample_league_input) == \
+           sample_league_rankings

@@ -14,10 +14,18 @@ Date:               January 2023
 """
 import pytest
 
+from application.league_ranking import LeagueRanking
+
+
+@pytest.fixture
+def sample_league_ranking_object():
+    """League Ranking object fixture."""
+    return LeagueRanking()
+
 
 @pytest.fixture
 def sample_league_input():
-    """League Match Sample input fixture."""
+    """League Matches Sample input fixture."""
     return 'Lions 3, Snakes 3\n' \
            'Tarantulas 1, FC Awesome 0\n' \
            'Lions 1, FC Awesome 1\n' \
