@@ -98,10 +98,18 @@ https://1password.com/
 
 # Running the Python Application
 ###Usage
+The Span Index Python file is the entrypoint for this application (span_index.py)
+Run this python file from your virtual environment (or hosted server with python installed)
 For use with a file input:
-`python league_ranking.py --file=<file_name>`
+`python span_index.py --file=<file_path><file_name>`
+i.e Sample Files to test are stored in ./sample_input
 For use with a command line input as comma and newline seperated text
-`python league_ranking.py <cmd input as stringed parameter one match result per line>`
+`python span_index.py <cmd input as stringed parameter one match result per line>`
 
+To Note:
+Application Code resides in the application folder
+Testing Code resides in the tests folder
 ### If using an IDE such as Pycharm
-Refer to the screenshots in the resources folder
+Refer to the screenshots in the resources folder for Pycharm Configurations
+(Similar configurations can be replicated in other editors like vscode, refer to the vendor
+for specific setups and configurations)

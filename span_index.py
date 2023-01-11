@@ -49,7 +49,7 @@ Expected output:
 3. Snakes, 1 pt
 5. Grouches, 0 pts
 
-Usage: python main.py --file=<file_name> (for use with a file input)
+Usage: python main.py --file=<file_path><file_name> (for use with a file input)
 
        python main.py <cmd input as stringed parameter one match result per line>
        (for use with a command line input as comma and newline seperated text)
@@ -63,9 +63,9 @@ from argparse import ArgumentParser
 from distutils.util import strtobool
 from dotenv import load_dotenv
 
-from helpers.print_functions import print_cmd_art
-from helpers.print_functions import print_program_end
-from league_ranking import calculate_rankings
+from application.helpers.print_functions import print_cmd_art
+from application.helpers.print_functions import print_program_end
+from application.league_ranking import calculate_rankings
 
 
 def get_options():

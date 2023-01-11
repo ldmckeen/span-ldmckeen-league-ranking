@@ -1,5 +1,5 @@
-coverage
+coverage~=7.0.5
 pre-commit~=2.21.0
-pytest
-pytest-cov
-pytest-mock
+pytest~=7.2.0
+pytest-cov~=4.0.0
+pytest-mock~=3.10.0
