@@ -16,7 +16,16 @@ Usage: league_ranking.py(<score_input>)
 ===========================================================================================
 """
 import logging
+import os
 import re
+
+from dotenv import load_dotenv
+
+# Load Environment Variables
+load_dotenv()
+FOOTBALL_LOSS = int(os.getenv('FOOTBALL_LOSS'))
+FOOTBALL_DRAW = int(os.getenv('FOOTBALL_DRAW'))
+FOOTBALL_WIN = int(os.getenv('FOOTBALL_WIN'))
 
 
 class LeagueRanking:
@@ -52,12 +61,12 @@ class LeagueRanking:
 
             # Check who won, lost or if a draw
             if int(team_1_score) == int(team_2_score):
-                self.league_table[team_1_name] += 1
-                self.league_table[team_2_name] += 1
+                self.league_table[team_1_name] += FOOTBALL_DRAW
+                self.league_table[team_2_name] += FOOTBALL_DRAW
             elif int(team_1_score) > int(team_2_score):
-                self.league_table[team_1_name] += 3
+                self.league_table[team_1_name] += FOOTBALL_WIN
             elif int(team_2_score) > int(team_1_score):
-                self.league_table[team_2_name] += 3
+                self.league_table[team_2_name] += FOOTBALL_WIN
 
         # Sort League Table (points descending and Team name alphabetically if draw
         print(f'Total Matches Played: {self.matches_count}')
