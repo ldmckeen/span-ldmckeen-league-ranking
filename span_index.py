@@ -68,24 +68,57 @@ from application.helpers.print_functions import print_program_end
 from application.league_ranking import LeagueRanking
 
 
-def get_options():
+def get_score_input():
     """
     Parse CLI arguments for script.
 
     :return: CLI Arguments
     """
-    parser = ArgumentParser(description='Read File')
-    required = parser.add_argument_group('Required Arguments')
+    if '--file' in sys.argv[1:]:
+        parser = ArgumentParser(description='Read File')
+        required = parser.add_argument_group('Required Arguments')
 
-    # Required Arguments
-    required.add_argument(
-        '--file',
-        dest='filename',
-        help='Filename (and path) file to read',
-        required=True,
-    )
+        # Required Arguments
+        required.add_argument(
+            '--file',
+            dest='filename',
+            help='Filename (and path) file to read',
+            required=True,
+        )
 
-    return parser.parse_args()
+        args = parser.parse_args()
+        file_name = args.filename
+        logging.info(f'Executing file input from file: {file_name}')
+        print(f'Executing file input from file: {file_name}')
+        with open(file_name) as f:
+            score_input = f.read()
+        logging.info(f'Executing file input from file: {file_name}')
+        print(f'Executing file input from file: {file_name}')
+
+        return score_input
+    elif not sys.argv[1:]:
+        logging.info('Executing input from file command line Input')
+        print('Executing input from file command line Input\n')
+
+        lines = []
+        print('Please input your match results here below\n'
+              "(When Complete Press Enter or type 'done' ...):")
+        while True:
+            user_input = input()
+
+            # 👇️ if user pressed Enter without a value, break out of loop
+            if user_input == '' or user_input == 'done':
+                break
+            else:
+                lines.append(user_input + '\n')
+
+        # Sanitise Input to replicate File input
+        score_input = ' '.join(lines).replace('\n ', '\n')
+        return score_input
+    else:
+        logging.info('Erroneous input from console.')
+        print('Erroneous input from console, please restart ...')
+        return
 
 
 def main():
@@ -94,29 +127,13 @@ def main():
     logging.info('Starting League Ranking Process ....')
     print('Starting League Ranking Process ....')
 
-    # Load Environment Variables
-    load_dotenv()
+    load_dotenv()  # Load Environment Variables
     file_input = bool(strtobool(os.getenv('FILE_INPUT', 'False')))
     logging.info(f'Using File Input: {file_input}')
     print(f'Using File Input: {file_input}')
 
-    # Instantiate League Ranking Object
-    lr = LeagueRanking()
-
-    # If File Input Env True, pull data from file, otherwise pull data from cmd params
-    score_input = None
-    if file_input:
-        # Get command line args
-        opts = get_options()
-        file_name = opts.filename
-        with open(file_name) as f:
-            score_input = f.read()
-        logging.info(f'Executing file input from file: {file_name}')
-        print(f'Executing file input from file: {file_name}')
-    else:
-        logging.info('Executing input from file command line Input')
-        print('Executing input from file command line Input')
-        score_input = ' '.join(sys.argv[1:])
+    lr = LeagueRanking()  # Instantiate League Ranking Object
+    score_input = get_score_input()  # Retrieve Score Input
 
     try:
         logging.info('.... Program Executing ....')
