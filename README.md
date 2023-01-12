@@ -128,13 +128,13 @@ For more information and resources on Pytest please see Pytest docs:
 https://docs.pytest.org/en/7.2.x/
 ### Program Inputs and Outputs
 * #### Input (Subset of Data in Sample Files Directory)<br>
-<img src="./resources/app_screenshots/program_input.png" alt="Input Data" title="Input Data" style="display: inline-block; margin: 0 auto; max-width: 400px">
+<img src="./resources/app_screenshots/program_input.png" alt="Input Data" title="Input Data" style="display: inline-block; margin: 0 auto; max-width: 200px">
 
 * #### Output
-<img src="./resources/app_screenshots/program_output.png" alt="Output Data" title="Output Data" style="display: inline-block; margin: 0 auto; max-width: 400px">
+<img src="./resources/app_screenshots/program_output.png" alt="Output Data" title="Output Data" style="display: inline-block; margin: 0 auto; max-width: 200px">
 
 * ###### Table Rankings Comparison From Google<br>
-<img src="./resources/epl_results/epl_2020_21_results.png" alt="EPL Results 2021/2" title="EPL Results 2021/2" style="display: inline-block; margin: 0 auto; max-width: 400px">
+<img src="./resources/epl_results/epl_2020_21_results.png" alt="EPL Results 2021/2" title="EPL Results 2021/2" style="display: inline-block; margin: 0 auto; max-width: 200px">
 
 
 #### IDE's
