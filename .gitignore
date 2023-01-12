@@ -9,6 +9,11 @@ __pycache__/
 .AppleDouble
 .LSOverride
 
-# Idea Files
+### Idea Files
 .idea/**
 
+### Coverage
+.coverage
+
+# Environment Variable File
+.env
