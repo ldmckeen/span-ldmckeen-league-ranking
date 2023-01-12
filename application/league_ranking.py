@@ -49,7 +49,7 @@ class LeagueRanking:
                 team1, team2 = item.split(', ')
             except Exception as e:
                 logging.error(f'Could not split input string: {e}')
-                return
+                raise e
             team_1_name, team_1_score = re.split(r'\s(?=\d+(?!\S))', team1)
             team_2_name, team_2_score = re.split(r'\s(?=\d+(?!\S))', team2)
 

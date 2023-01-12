@@ -121,14 +121,17 @@ This Application make use of the Pytest unit testing Library.<br>
 To run the unit tests you can use the single command:<br>
 `pytest` from the root directory of the repo.
 
+<img src="./resources/app_screenshots/unit_test_output.png" alt="Unit Testing Output Example" title="Unit Testing Output Example" style="display: inline-block; margin: 0 auto; max-width: 500px">
+
+
 For more information and resources on Pytest please see Pytest docs:
 https://docs.pytest.org/en/7.2.x/
 ### Program Inputs and Outputs
 * #### Input (Subset of Data in Sample Files Directory)<br>
-<img src="./resources/app_screenshots/program_input.png" alt="EPL Results 2021/2" title="EPL Results 2021/2" style="display: inline-block; margin: 0 auto; max-width: 400px">
+<img src="./resources/app_screenshots/program_input.png" alt="Input Data" title="Input Data" style="display: inline-block; margin: 0 auto; max-width: 400px">
 
 * #### Output
-<img src="./resources/app_screenshots/program_output.png" alt="EPL Results 2021/2" title="EPL Results 2021/2" style="display: inline-block; margin: 0 auto; max-width: 400px">
+<img src="./resources/app_screenshots/program_output.png" alt="Output Data" title="Output Data" style="display: inline-block; margin: 0 auto; max-width: 400px">
 
 * ###### Table Rankings Comparison From Google<br>
 <img src="./resources/epl_results/epl_2020_21_results.png" alt="EPL Results 2021/2" title="EPL Results 2021/2" style="display: inline-block; margin: 0 auto; max-width: 400px">
@@ -140,15 +143,15 @@ Refer to the screenshots below for some Pycharm Configurations
 (Similar configurations can be replicated in other editors like vscode, refer to the vendor
 for specific setups and configurations)
 #### File Input
-<img src="./resources/pycharm_configs/pycharm-conf league-rank-app-file.png" alt="EPL Results 2021/2" title="EPL Results 2021/2" style="display: inline-block; margin: 0 auto; max-width: 300px">
+<img src="./resources/pycharm_configs/pycharm-conf league-rank-app-file.png" alt="File Input Conf Pycharm" title="File Input Conf Pycharm" style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 #### StdIn Input
 
-<img src="./resources/pycharm_configs/pycharm-conf league-rank-app-stdin.png" alt="EPL Results 2021/2" title="EPL Results 2021/2" style="display: inline-block; margin: 0 auto; max-width: 300px">
+<img src="./resources/pycharm_configs/pycharm-conf league-rank-app-stdin.png" alt="StdIn Input Conf Pycharm" title="StdIn Input Conf Pycharm" style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 #### Unit Testing
 
-<img src="./resources/pycharm_configs/pycharm-conf%20league-rank-app-unit-testing.png" alt="EPL Results 2021/2" title="EPL Results 2021/2" style="display: inline-block; margin: 0 auto; max-width: 300px">
+<img src="./resources/pycharm_configs/pycharm-conf%20league-rank-app-unit-testing.png" alt="Unit Testing Conf Pycharm" title="Unit Testing Conf Pycharm" style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 ## *Pending Improvements and Future Updates .....*
 ### Application Updates:
@@ -159,7 +162,8 @@ for specific setups and configurations)
 * More Detailed Doc String Params
 * Type hints
 * Update Exception handling to exit more gracefully and send raise errors to the console
-* Update logging to output to log files and std out with single logging code statments
+* Update logging to output to log files and std out with single logging code statements
+* Refactor Score Input Logic and functions into their own helper functions
 
 #### System Updates
 * Add Database Integration to store Rankings for future retrieval
