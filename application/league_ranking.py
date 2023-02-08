@@ -75,4 +75,12 @@ class LeagueRanking:
             key=lambda t_item: (-t_item[1], t_item[0])
         )
 
+        rank = 0
+        for index, team in enumerate(rankings):
+            rank += 1
+            if index > 0 and rankings[index][1] == rankings[index - 1][1]:
+                rankings[index] = team + (rankings[index - 1][2], )
+            else:
+                rankings[index] = team + (rank,)
+
         return rankings

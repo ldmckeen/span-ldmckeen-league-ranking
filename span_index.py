@@ -152,7 +152,11 @@ def main():
         if result:
             for team in result:
                 team_rank_count += 1
-                print(f'{team_rank_count}. {team[0]} {team[1]} pts')
+                if team[1] == 1:
+                    points_string = 'pt'
+                else:
+                    points_string = 'pts'
+                print(f'{team[2]}. {team[0]} {team[1]} {points_string}')
 
         print('\no-o-o-o-o-o-o-o-o-o-o-o')
         print('-----------------------')
